@@ -1,9 +1,166 @@
-body {
-  margin: 0;
+* {
+  padding: 0%;
+  margin: 0%;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
 }
 
+.root{
+  width: 100%;
+  max-width: 900px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+nav{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  background-color: black;
+  color: whitesmoke;
+  align-items: center;
+  padding: 2% 6px;
+}
+
+nav ul{
+  display: flex;
+  list-style: none;
+  gap: 12px;
+}
+
+main{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 24px 12px;
+  justify-content: center;
+  align-items: center;
+}
+
+main .user-bar{
+  width: 100%;
+  max-width: 1200px;
+  padding: 24px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+main .user-bar .search-input{
+  background-color: white;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border: 1px solid black;
+  border-radius: 12px;
+  box-shadow: .5px .5px .5px black;
+}
+
+main .user-bar .search-input input{
+  border-radius: 12px;
+  border: none;
+  height: 30px;
+  padding: 24px 12px;
+  outline: none;
+  font-size: 18px;
+ 
+}
+
+main .user-bar .search-input span{
+  width: 96px;
+  text-align: center;
+  padding: 0px 12px;
+}  
+
+main .user-bar .filter-select{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  border-radius: 12px;
+  box-shadow: .5px .5px .5px black;
+  padding: 0px 6px;
+  background-color: white;
+}
+main .user-bar .filter-select select{
+  border-radius: 12px;
+  outline: none;
+  border: none;
+  padding: 12px 12px;
+  font-size: 18px;
+}
+
+main .user-bar .filter-select select option{
+  width: 100%;
+}
+main .container{
+  background-color: white;
+  display: flex;
+  border: 3px solid rgb(40, 40, 40);
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  gap: 32px;
+  padding: 32px;
+  margin: 8px 0px calc(2% + 64px) 0px;
+
+}
+main section .card{
+  width: 180px;
+  border-radius: 12px;
+  box-shadow: 1px 1px 1px 1px rgb(117, 117, 117);
+}
+
+main section .card-header img{
+  width: 100%;
+  background-color: #2f2f2f;
+  border-radius: 12px;
+}
+main section .card-body{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 24px 12px;
+}
+main section .card-body-type, main section .card-body-info{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  gap: 6px;
+}
+
+main section .card-body-info{
+  font-size: 18px;
+}
+
+main section .card-body-type{
+  margin-top: 12px;
+}
+main section .card-body-type h4{
+  border: 2px solid black;
+  width: 80px;
+  border-radius: 24px;
+  text-align: center;
+  padding: 6px;
+  font-size: 14px;
+}
+
+footer{
+  width: 100%;
+  background-color: black;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  color: white;
+  text-align: center;
+  padding: 2% 6px;
+  margin-top: 24px;
+}

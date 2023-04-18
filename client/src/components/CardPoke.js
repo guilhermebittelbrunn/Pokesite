@@ -1,16 +1,23 @@
 function Card(props) {
     return (
-        <ul>
-            {props.data.map((item, k) => {
-                return (
-                    <li key={item.name + item.id} id={item.id}>
-                        <h3>{item.name}</h3>
-                        <h4>{item.id}</h4>
-                        <h4>{k}</h4>
-                    </li>
-                );
-            })}
-        </ul>
+        <>
+            <div className="card" key={props.pokemon.id} id={props.pokemon.id}>
+                <div className="card-header">
+                    <img src={props.pokemon.sprites.front_default} alt={props.pokemon.name}></img>
+                </div>
+                <div className="card-body">
+                    <div className="card-body-info">
+                        <h3>{props.pokemon.name}</h3>
+                        <p>#{props.pokemon.id}</p>
+                    </div>
+                    <div className="card-body-type">
+                        {props.pokemon.types.map((type) => {
+                            return <h4>{type.type.name}</h4>;
+                        })}
+                    </div>
+                </div>
+            </div>
+        </>
     );
 }
 

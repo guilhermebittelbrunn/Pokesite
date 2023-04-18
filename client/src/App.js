@@ -45,11 +45,11 @@ function App(props) {
         console.log(text);
     }
 
-    useEffect(() => {
-        getAllPokemons(50);
-        // getOnePokemon('c');
-        console.log(data);
-    }, []);
+    // useEffect(() => {
+    //     getAllPokemons(50);
+    //     // getOnePokemon('c');
+    //     console.log(data);
+    // }, []);
 
     return (
         <>
