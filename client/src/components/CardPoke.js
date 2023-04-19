@@ -1,7 +1,7 @@
 function Card(props) {
     return (
         <>
-            <div className="card" key={props.pokemon.id} id={props.pokemon.id}>
+            <div className="card" key={props.pokemon.id + props.pokemon.name} id={props.pokemon.id}>
                 <div className="card-header">
                     <img src={props.pokemon.sprites.front_default} alt={props.pokemon.name}></img>
                 </div>

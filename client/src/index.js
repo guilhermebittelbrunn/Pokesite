@@ -12,8 +12,6 @@ function Application() {
     const [pokemons, setPokemons] = useState([]);
     const [start, setStart] = useState(1);
     const [end, setEnd] = useState(50);
-    // const [start, setStart] = useState(1);
-    // const [end, setEnd] = useState(50);
 
     async function showMorePokemons() {
         await fetchPokemons(start, end, 1);
@@ -21,32 +19,21 @@ function Application() {
     }
 
     async function fetchPokemons(start, end, skip) {
+        let data = [];
         for (let i = start; i <= end; i += skip) {
             const apiresolve = await axios.get(`https://pokeapi.co/api/v2/pokemon/${i}`);
             const apijson = await apiresolve.data;
-            setPokemons((preventValue) => {
-                return [...preventValue, apijson];
-            });
+            data.push(apijson);
         }
+        setPokemons((preventValue) => {
+            return [...preventValue, ...data];
+        });
     }
 
     function incressLoop() {
-        setStart(start + 50);
-        setEnd(end + 50);
-        console.log(start, end);
+        setStart(start + 25);
+        setEnd(end + 25);
     }
-
-    // function incressStart() {
-    //     setStart((preventValue) => {
-    //         preventValue + 50;
-    //     });
-    // }
-
-    // function incressEnd() {
-    //     setStart((preventValue) => {
-    //         preventValue + 50;
-    //     });
-    // }
 
     useEffect(() => {
         (async () => {
