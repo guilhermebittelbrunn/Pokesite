@@ -106,15 +106,27 @@ main .container{
   width: 100%;
   max-width: 1200px;
   display: flex;
+  margin: 8px 0px 32px 0px;
+  padding: 24px 6px;
+}
+main .container_cards{
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
   gap: 32px;
-  padding: 32px;
-  margin: 8px 0px calc(2% + 64px) 0px;
-
+  justify-content: center;
+  align-items: center;
+  padding: 24px 0px;
 }
 main section .card{
   width: 180px;
   border-radius: 12px;
-  box-shadow: 1px 1px 1px 1px rgb(117, 117, 117);
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+  transition: all .4s;
+}
+main section .card:hover{
+  cursor: pointer;
+  box-shadow: 4px 4px 4px 2px rgba(0, 0, 0, 0.2);
 }
 
 main section .card-header img{
@@ -140,9 +152,15 @@ main section .card-body-type, main section .card-body-info{
 main section .card-body-info{
   font-size: 18px;
 }
+main section .card-body-info p{
+  color: #2f2f2f;
+}
 
 main section .card-body-type{
   margin-top: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 main section .card-body-type h4{
   border: 2px solid black;
@@ -153,6 +171,37 @@ main section .card-body-type h4{
   font-size: 14px;
 }
 
+main section .btn-show-more{
+  background-color: black;
+  color: whitesmoke;
+  border: 3px solid black;
+  font-size: 24px;
+  padding: 6px 24px;
+  border-radius: 24px;
+  transition: all .4s;
+}
+main section .btn-show-more:hover{
+  cursor: pointer;
+  background: white;
+  color: black;
+}
+main section .load-field{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 12px;
+  padding: 12px;
+  gap: 12px;
+  font-size: 24px;
+}
+main section .load{
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 6px solid #616161;
+  border-top: 6px solid black;
+  animation: loadRotate 3s linear  infinite ;
+}
 footer{
   width: 100%;
   background-color: black;
@@ -161,3 +210,33 @@ footer{
   padding: 2% 6px;
   margin-top: 24px;
 }
+.modal{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #2f2f2f;
+}
+
+
+@keyframes loadRotate {
+  from{
+    transform: rotate(0deg);
+  }
+  to{
+    transform: rotate(360deg);
+  }
+}
+
+
+@media screen and (max-width: 550px){
+  main .user-bar{
+    flex-direction: column;
+    gap: 12px;
+  }
+  main .user-bar .search-input, main .user-bar .filter-select{
+    width: 90%;
+  }
+}
+
