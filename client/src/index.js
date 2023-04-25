@@ -7,13 +7,14 @@ import Footer from "./components/Footer";
 import Container from "./components/Container";
 import SearchBar from "./components/SearchBar";
 import Modal from "./components/Modal.js";
+import axios from "axios";
 
 function Application() {
     const [load, setLoad] = useState(false);
     const [modalState, setModalState] = useState(false);
     const [id, setId] = useState("");
 
-    function showModal(id) {
+    async function showModal(id) {
         setId(id);
         setModalState(!modalState);
     }

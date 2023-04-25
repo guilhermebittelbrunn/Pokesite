@@ -8,7 +8,7 @@ export default function SearchBar() {
                 </div>
                 <div className="filter-select">
                     <select name="filter" id="filter">
-                        <option value="1">⚙️filtro</option>
+                        <option value="1">Filter</option>
                         <option value="1">1</option>
                         <option value="1">1</option>
                     </select>

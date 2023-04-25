@@ -69,7 +69,14 @@ function Card(props) {
                     </div>
                     <div className="card-body-type">
                         {props.pokemon.types.map((type) => {
-                            return <h4 style={{ backgroundColor: setColor(type.type.name) }}>{type.type.name}</h4>;
+                            return (
+                                <h4
+                                    key={type.type.name + props.pokemon.id}
+                                    style={{ backgroundColor: setColor(type.type.name) }}
+                                >
+                                    {type.type.name}
+                                </h4>
+                            );
                         })}
                     </div>
                 </div>

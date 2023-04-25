@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 
 export default function Container(props) {
     const [pokemons, setPokemons] = useState([]);
-    const [loop, setLoop] = useState({ start: 1, end: 25 });
+    const [loop, setLoop] = useState({ start: 240, end: 260 });
     const { load, setLoad } = props;
 
     async function fetchPokemons(start, end, skip) {
