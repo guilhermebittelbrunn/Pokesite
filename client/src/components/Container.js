@@ -1,6 +1,7 @@
 import Card from "./CardPoke";
 import axios from "axios";
 import { useState, useEffect } from "react";
+import useFetch from "../hooks/useFetch";
 
 export default function Container(props) {
     const [pokemons, setPokemons] = useState([]);
@@ -9,8 +10,8 @@ export default function Container(props) {
 
     async function fetchPokemons(start, end, skip) {
         const data = [];
+        setLoad(true);
         try {
-            setLoad(true);
             for (let i = start; i <= end; i += skip) {
                 const apiresolve = await axios.get(`https://pokeapi.co/api/v2/pokemon/${i}`);
                 const apijson = await apiresolve.data;
