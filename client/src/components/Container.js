@@ -1,7 +1,7 @@
-import Card from "./CardPoke";
-import axios from "axios";
-import { useState, useEffect } from "react";
-import useFetch from "../hooks/useFetch";
+import Card from './CardPoke';
+import axios from 'axios';
+import { useState, useEffect } from 'react';
+import useFetch from '../hooks/useFetch';
 
 export default function Container(props) {
     const [pokemons, setPokemons] = useState([]);
@@ -28,7 +28,7 @@ export default function Container(props) {
     }
 
     function incressLoop() {
-        setLoop({ ["start"]: loop.start + 25, ["end"]: loop.end + 25 });
+        setLoop({ ['start']: loop.start + 25, ['end']: loop.end + 25 });
     }
 
     async function showMorePokemons() {
