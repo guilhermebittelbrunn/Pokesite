@@ -1,14 +1,14 @@
-import { HeartOutlined } from '@ant-design/icons';
-import { useState } from 'react';
-import useFetch from '../hooks/useFetch';
+import { HeartOutlined } from "@ant-design/icons";
+import { useState } from "react";
+import useFetch from "../hooks/useFetch";
 
 export default function Modal(props) {
     const { info, isLoading, error } = useFetch(props.id);
     const [data, setData] = useState(info);
 
-    console.log(data);
     async function changeModal() {
         props.showModal();
+        console.log(JSON.parse(localStorage.getItem("favorites")));
     }
     return (
         (!isLoading && (
@@ -18,7 +18,7 @@ export default function Modal(props) {
                 </button>
                 <img src={info.sprites.front_default}></img>
                 <h3>Statics of {info.name}</h3>
-                {info['stats'].map((item) => {
+                {info["stats"].map((item) => {
                     return <BarStat item={item} key={item.stat.name} />;
                 })}
                 <div className="modal-btns">
@@ -31,7 +31,13 @@ export default function Modal(props) {
                             prevent
                         </button>
                     </div>
-                    <HeartOutlined />
+                    <HeartOutlined
+                        onClick={() => {
+                            const list = [localStorage.getItem("favorites")];
+                            list.push(info);
+                            localStorage.setItem("favorites", JSON.stringify(list));
+                        }}
+                    />
                     <div className="next">
                         <button
                             onClick={() => {
@@ -64,7 +70,7 @@ function BarStat(props) {
                         className="stat"
                         style={{
                             width: `${props.item.base_stat * 2}px`,
-                            backgroundColor: `${props.item.base_stat > 150 ? '#B22222' : 'green'}`,
+                            backgroundColor: `${props.item.base_stat > 150 ? "#B22222" : "green"}`,
                         }}
                     ></div>
                 </div>

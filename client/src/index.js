@@ -1,18 +1,17 @@
-import React, { useState } from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
+import React, { useState } from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
 
-import Nav from './components/NavBar';
-import Footer from './components/Footer';
-import Container from './components/Container';
-import SearchBar from './components/SearchBar';
-import Modal from './components/Modal.js';
-import axios from 'axios';
+import Nav from "./components/NavBar";
+import Footer from "./components/Footer";
+import Container from "./components/Container";
+import SearchBar from "./components/SearchBar";
+import Modal from "./components/Modal.js";
 
 function Application() {
     const [load, setLoad] = useState(false);
     const [modalState, setModalState] = useState(false);
-    const [id, setId] = useState('');
+    const [id, setId] = useState("");
 
     async function showModal(id) {
         setId(id);
@@ -38,5 +37,5 @@ function Application() {
     );
 }
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<Application />);
