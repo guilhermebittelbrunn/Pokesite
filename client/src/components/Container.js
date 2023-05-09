@@ -1,34 +1,42 @@
-import Card from "./CardPoke";
-import axios from "axios";
-import { useState, useEffect } from "react";
-import useFetch from "../hooks/useFetch";
+import Card from './CardPoke';
+import axios from 'axios';
+import { useState, useEffect } from 'react';
+import useFetch from '../hooks/useFetch';
 
 export default function Container(props) {
     const [pokemons, setPokemons] = useState([]);
-    const [loop, setLoop] = useState({ start: 240, end: 260 });
+    const [loop, setLoop] = useState({ start: 700, end: 750 });
     const { load, setLoad } = props;
 
     async function fetchPokemons(start, end, skip) {
         const data = [];
+        const teste = [];
         setLoad(true);
         try {
-            for (let i = start; i <= end; i += skip) {
-                const apiresolve = await axios.get(`https://pokeapi.co/api/v2/pokemon/${i}`);
-                const apijson = await apiresolve.data;
-                data.push(apijson);
+            for (let i = start; i <= end; i += 1) {
+                // const apiresolve = await axios.get(`https://pokeapi.co/api/v2/pokemon/${i}`);
+                // const apijson = await apiresolve.data;
+                // data.push(apijson);
+                teste.push(`https://pokeapi.co/api/v2/pokemon/${i}`);
             }
+            const testezao = await axios.all(
+                teste.map(async (link) => {
+                    const { data } = await axios.get(link);
+                    return data;
+                })
+            );
+            setPokemons((preventValue) => {
+                setLoad(false);
+                return [...preventValue, ...testezao];
+            });
         } catch (err) {
             return err;
         } finally {
-            setPokemons((preventValue) => {
-                setLoad(false);
-                return [...preventValue, ...data];
-            });
         }
     }
 
     function incressLoop() {
-        setLoop({ ["start"]: loop.start + 25, ["end"]: loop.end + 25 });
+        setLoop({ ['start']: loop.start + 25, ['end']: loop.end + 25 });
     }
 
     async function showMorePokemons() {
