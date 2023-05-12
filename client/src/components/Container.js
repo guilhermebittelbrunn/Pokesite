@@ -5,7 +5,7 @@ import useFetch from '../hooks/useFetch';
 
 export default function Container(props) {
     const [pokemons, setPokemons] = useState([]);
-    const [loop, setLoop] = useState({ start: 700, end: 750 });
+    const [loop, setLoop] = useState({ start: 50, end: 100 });
     const { load, setLoad } = props;
 
     async function fetchPokemons(start, end, skip) {
